@@ -1,11 +1,10 @@
 import os
 from panos import panorama
 
-USERNAME = os.getenv("PANOUSER")
-PASSWORD = os.getenv("PANOPWD")
 DEVICE = os.getenv("PANORAMA")
+APIKEY = os.getenv("PANOAPIKEY")
 
-pano = panorama.Panorama(DEVICE, USERNAME, PASSWORD)
+pano = panorama.Panorama(hostname=DEVICE, api_key=APIKEY)
 
 def sysinfo(pano):
     """Request System Info from Palo Alto Netowrks Firewall or Panorama"""
