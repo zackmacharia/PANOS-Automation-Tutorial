@@ -11,22 +11,21 @@ USERNAME = os.getenv("PANOUSER")
 PASSWORD = os.getenv("PANOPWD")
 DEVICE = os.getenv("PANORAMA")
 
+
 def generateapikey(DEVICE, USERNAME, PASSWORD):
     # url: specifies the URL format required to get the API key from the device
     url = "https://" + DEVICE + "/api/?type=keygen&" + "user=" + USERNAME + "&password=" + PASSWORD 
 
     # keyResponse: stores the response code from the device this is of type Response e.g. 403, 200
     keyResponse = requests.get(url, verify=False)
-    print("Key Response:", keyResponse)
 
     # keyText: converts Response type to a string
     keyText = keyResponse.text
-    print("Key Text:", keyText)
 
-    grepApiKey(keyText, "key")
+    grepApiKey(keyText)
     
 
-def grepApiKey(responseText, value):
+def grepApiKey(responseText):
     
     # pattern: regular expression pattern used to filter out the required value
     # The function takes a string of the text to be parsed
