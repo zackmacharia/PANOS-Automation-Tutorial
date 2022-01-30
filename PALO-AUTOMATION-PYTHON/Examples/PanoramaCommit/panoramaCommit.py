@@ -34,15 +34,6 @@ APIKEY = os.getenv("PANOAPIKEY")
 # Instantiate Panorama PanObject and connect to live device
 pano = panorama.Panorama(hostname=DEVICE, api_key=APIKEY)
 
-# createTemplate creates a dg Panobject then adds the dg value to the Panobject and finally creates it to the device
-def createTemplate(name):
-    dg = panorama.Template(name) # Creates a Template PanObject
-    pano.add(dg) # Adds the Template PanObject to the Panorama PanObject
-    dg.create()  # Creates the Template to the live Panorama device
-    print(name, "Template successfully created!")
-
-
-if __name__ == "__main__":
-    createTemplate("MyNewTemplate")
-
+commit = panorama.PanoramaCommit()
+pano.commit()
     
