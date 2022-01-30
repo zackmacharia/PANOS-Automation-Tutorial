@@ -7,19 +7,19 @@ Below are the steps I used to create envrionmental variables in MACOS
 Open Terminal
 
 `nano ~/.bash_profile`
-export PANORAMA="PANORAMAFQDN_OR_IPADDRESS"
-export PANOAPIKEY="APIKEYVALUEHERE"
-:q!
-ctrl+0
-ctrl+X
+`export PANORAMA="PANORAMAFQDN_OR_IPADDRESS"`
+`export PANOAPIKEY="APIKEYVALUEHERE"`
+`:q!`
+`ctrl+0`
+`ctrl+X`
 
 Restart the session either by closing out the terminal or running the source command. 
-"source ~/.bash_profile"
-Press Enter
+`"source ~/.bash_profile"`
+`Press Enter`
 
 Verify the environmental variables by running:
 
-"printenv | grep PANO"
+`"printenv | grep PANO"`
 """
 DEVICE = os.getenv("PANORAMA")
 APIKEY = os.getenv("PANOAPIKEY")
